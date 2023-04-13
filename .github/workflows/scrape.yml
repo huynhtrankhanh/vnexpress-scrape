@@ -26,4 +26,4 @@ jobs:
           GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           HEAD_SHA: ${{ github.sha }}
-        run: node scrape-headlines.js
+        run: node scrape-headlines.cjs
