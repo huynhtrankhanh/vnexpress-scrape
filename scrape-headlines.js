@@ -36,13 +36,19 @@ async function main() {
     const filePath = 'headlines.txt';
     fs.writeFileSync(filePath, content);
 
+    const { data: { sha: currentSha } } = await octokit.repos.getContent({
+      owner: process.env.GITHUB_REPOSITORY_OWNER,
+      repo: 'vnexpress-scrape',
+      path: 'headlines.txt',
+    });
+
     await octokit.repos.createOrUpdateFileContents({
       owner: process.env.GITHUB_REPOSITORY_OWNER,
       repo: 'vnexpress-scrape',
       path: 'headlines.txt',
       message: 'Update headlines',
       content: Buffer.from(content).toString('base64'),
-      sha: process.env.HEAD_SHA,
+      sha: currentSha,
     });
   } catch (error) {
     console.error(error);
