@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { Octokit } = require("@octokit/rest");
 const { throttling } = require("@octokit/plugin-throttling");
-const fetch = import('node-fetch');
+const fetch = import('node-fetch').default;
 const cheerio = require('cheerio');
 
 const MyOctokit = Octokit.plugin(throttling);
