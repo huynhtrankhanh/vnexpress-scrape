@@ -33,7 +33,7 @@ async function main() {
     const headlines = $('h1').map((_, el) => $(el).text()).get();
     const content = headlines.join('\n');
 
-    const filePath = path.join(__dirname, 'headlines.txt');
+    const filePath = 'headlines.txt';
     fs.writeFileSync(filePath, content);
 
     await octokit.repos.createOrUpdateFileContents({
