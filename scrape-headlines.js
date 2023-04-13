@@ -38,7 +38,7 @@ async function main() {
 
     await octokit.repos.createOrUpdateFileContents({
       owner: process.env.GITHUB_REPOSITORY_OWNER,
-      repo: process.env.GITHUB_REPOSITORY,
+      repo: 'vnexpress-scrape',
       path: 'headlines.txt',
       message: 'Update headlines',
       content: Buffer.from(content).toString('base64'),
