@@ -30,7 +30,7 @@ async function main() {
     const response = await fetch('https://vnexpress.net/');
     const html = await response.text();
     const $ = cheerio.load(html);
-    const headlines = $('h1').map((_, el) => $(el).text()).get();
+    const headlines = $('h3').map((_, el) => $(el).text()).get();
     const content = headlines.join('\n');
 
     const filePath = 'headlines.txt';
