@@ -1,1 +1,1 @@
-{ "name": "abc", "type": "commonjs" }
+{ "name": "abc", "type": "module" }
